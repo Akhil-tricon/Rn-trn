@@ -1,5 +1,6 @@
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, Text, TextInput, StyleSheet,Button} from 'react-native';
 import React, { useState } from 'react';
+import { router } from 'expo-router'
 
 export default function Home() {
   const [text, setText] = useState('');
@@ -14,10 +15,18 @@ export default function Home() {
         padding: 5,
         marginHorizontal: 8,
         borderWidth: 1,
+        margin:'auto'
     },
     text: {
       padding: 10,
       fontSize: 42
+    },
+    button:{
+      height:60,
+      width:150,
+      borderRadius:50,
+      padding:10,
+      margin:'auto'
     }
   })
   return (
@@ -27,6 +36,10 @@ export default function Home() {
         defaultValue={text}
         style={styles.input} />
       <Text style={styles.text}> {text.split(' ').map(word => word && '😅').join(' ')} </Text>
+      <View style={styles.button}>
+        <Button title="Go to loader" onPress={()=>router.push('/loader')}></Button>
+      </View>
     </View>
+      
   )
 }
