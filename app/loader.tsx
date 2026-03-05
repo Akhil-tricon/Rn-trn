@@ -45,7 +45,7 @@ export default function Loader(){
             alignItems:'center',
             height:250,
             width:300,
-            backgroundColor:'white',
+            backgroundColor:'#52f55a',
             padding:30,
             margin:5,
             borderRadius:15,
@@ -71,7 +71,7 @@ export default function Loader(){
         <ScrollView>
             <Text style={styles.fonts}>Movies List</Text>
             <View style={styles.container}>
-                {loading ?(<ActivityIndicator size="large" color="#fff" />) :(movie.map((item:Movie)=>(
+                {loading ?(<ActivityIndicator size="large" color="#52f55a" />) :(movie.map((item:Movie)=>(
                 <View key={item.id} style={styles.box}>
                 <Image source={{uri:item.poster}}   style={{ width: 70, height: 100 }}  resizeMode="cover"/>
                 <View style={{ height: 1,backgroundColor: 'black',width: '100%',marginVertical: 10,}}/>

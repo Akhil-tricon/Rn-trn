@@ -8,24 +8,30 @@ export default function Home() {
   const styles = StyleSheet.create({
     container: {
         flex: 1, 
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor:'black'
     },
     input: {
         height: 40,
         padding: 5,
         marginHorizontal: 8,
         borderWidth: 1,
-        margin:'auto'
+        margin:'auto',
+        backgroundColor:'white'
     },
     text: {
       padding: 10,
-      fontSize: 42
+      fontSize: 42,
+      color:'white'
     },
     button:{
-      height:60,
+      display:'flex',
+      flexDirection:'row',
+      gap:10,
+      height:80,
       width:150,
       borderRadius:50,
-      padding:10,
+      padding:20,
       margin:'auto'
     }
   })
@@ -37,7 +43,9 @@ export default function Home() {
         style={styles.input} />
       <Text style={styles.text}> {text.split(' ').map(word => word && '😅').join(' ')} </Text>
       <View style={styles.button}>
-        <Button title="Go to loader" onPress={()=>router.push('/loader')}></Button>
+        <Button title="Loader" onPress={()=>router.push('/loader')}/>
+        <Button title="Contact" onPress={()=>router.push('/contact')}/>
+        <Button title="Setting" onPress={()=>router.push('/settings')}/>
       </View>
     </View>
       
