@@ -3,14 +3,14 @@ import {Tabs} from 'expo-router';
 export default function TabLayout(){
     return(
         <Tabs screenOptions={{tabBarActiveTintColor:'#419c46'}}>
-            <Tabs.Screen name="settings" options={{
-                title:'Setting',
+            <Tabs.Screen name="toggle" options={{
+                title:'Toggle',
                 tabBarIcon:({color})=><FontAwesome size={38} color={color}/>,
             }}
             />
-            <Tabs.Screen name="contact" options={{
-                title:'Contact',
-                tabBarIcon:({color})=><FontAwesome size={32} color={color}/>,
+            <Tabs.Screen name="icons" options={{
+                title:'Icon',
+                tabBarIcon:({color})=><FontAwesome size={38} color={color}/>,
             }}
             />
         </Tabs>

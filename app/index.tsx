@@ -46,6 +46,8 @@ export default function Home() {
         <Button title="Loader" onPress={()=>router.push('/loader')}/>
         <Button title="Contact" onPress={()=>router.push('/contact')}/>
         <Button title="Setting" onPress={()=>router.push('/settings')}/>
+        <Button title="Icon" onPress={()=>router.push('/icons')}/>
+          <Button title="Toggle" onPress={()=>router.push('/toggle')}/>
       </View>
     </View>
       
