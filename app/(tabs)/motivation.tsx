@@ -1,6 +1,6 @@
 import {View,Text} from 'react-native'
 
-export default function Explore(){
+export default function Home(){
   return(
     <View>
       <Text>Hello this is firstProject</Text>
