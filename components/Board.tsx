@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useGameStore } from "../store/gameStore";
 import Square from "./Square";
 
@@ -12,8 +12,8 @@ const Board = () => {
   const winner = useGameStore((state) => state.winner);
   const xIsNext = useGameStore((state) => state.xIsNext);
   const resetGame = useGameStore((state) => state.resetGame);
-  const jumpToMove = useGameStore((state) => state.jumpToMove);
   const draw = useGameStore((state) => state.draw);
+
 
   const player = xIsNext ? "X" : "O";
 
@@ -37,14 +37,11 @@ const Board = () => {
         ))}
       </View>
 
-      <Button title="Restart Game" onPress={resetGame} />
-      {history.map((_, move) => (
-        <Button
-          key={move}
-          title={`Go to move ${move}`}
-          onPress={() => jumpToMove(move)}
-        />
-      ))}
+      <View style={styles.controls}>
+        <TouchableOpacity style={styles.controlButton} onPress={resetGame}>
+          <Text>Restart Game</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -64,5 +61,19 @@ const styles = StyleSheet.create({
   status: {
     fontSize: 24,
     marginBottom: 20,
+  },
+  controls: {
+    marginTop: 20,
+  },
+  controlButton: {
+    marginVertical: 5,
+    borderRadius: 8,
+    flexDirection: "row",
+    gap: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: '#808080', 
   },
 });

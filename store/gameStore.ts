@@ -8,7 +8,6 @@ type GameState = {
   draw: boolean;
 
   playMove: (index: number) => void;
-  jumpToMove: (move: number) => void;
   resetGame: () => void;
 };
 
@@ -78,17 +77,5 @@ export const useGameStore = create<GameState>((set, get) => ({
       winner: null,
       draw: false,
     });
-  },
-
-  jumpToMove: (move) => {
-    const { history } = get();
-    const squares = history[move];
-    const winner = calculateWinner(squares);
-
-    set({
-      currentMove: move,
-      xIsNext: move % 2 === 0,
-      winner,
-    });
-  },
+  }
 }));

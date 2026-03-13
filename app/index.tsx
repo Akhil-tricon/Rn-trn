@@ -12,7 +12,7 @@ export default function Index() {
 
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.header}>
+      <View className="bg-red-500 p-4 rounded-lg mb-4">
         <Text style={styles.title}>Welcome!</Text>
         <Text style={styles.subtitle}>My First React Native App</Text>
       </View>
