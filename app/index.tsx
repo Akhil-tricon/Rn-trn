@@ -1,5 +1,7 @@
+import { useCameraPermissions } from "expo-camera";
 import { useRouter } from "expo-router";
 import {
+  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -9,10 +11,15 @@ import {
 
 export default function Index() {
   const router = useRouter();
+  const [permission, requestPermission] = useCameraPermissions();
+
+  const isPermissionGranted = permission?.granted === true;
+
+  console.log(permission);
 
   return (
     <ScrollView style={styles.container}>
-      <View className="bg-red-500 p-4 rounded-lg mb-4">
+      <View style={styles.header}>
         <Text style={styles.title}>Welcome!</Text>
         <Text style={styles.subtitle}>My First React Native App</Text>
       </View>
@@ -41,6 +48,32 @@ export default function Index() {
             onPress={() => router.push("/tictactoe")}
           >
             <Text style={styles.buttonText}>Tic Tac Toe</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <View style={styles.card}>
+        <Text style={styles.cardTitle}>QR Code Scanner</Text>
+        <View>
+          {!isPermissionGranted && (
+            <Pressable onPress={requestPermission}>
+              <Text style={styles.permission}>Request Camera Permission</Text>
+            </Pressable>
+          )}
+        </View>
+        <View style={styles.button}>
+          <TouchableOpacity
+            style={[
+              styles.button,
+              styles.buttonCamera,
+              { opacity: !isPermissionGranted ? 0.5 : 1 },
+            ]}
+            disabled={!isPermissionGranted}
+            onPress={() => router.push("/camera")}
+          >
+            <Text style={styles.buttonText}>
+              {isPermissionGranted ? "Open Camera" : "Grant Camera Permission"}
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -112,5 +145,12 @@ const styles = StyleSheet.create({
   },
   buttonGame: {
     backgroundColor: "#6366f1",
+  },
+  buttonCamera: {
+    backgroundColor: "#ddd454",
+  },
+  permission: {
+    color: "#4b5563",
+    fontSize: 14,
   },
 });
