@@ -5,12 +5,12 @@ export default function TabLayout(){
         <Tabs screenOptions={{tabBarActiveTintColor:'#419c46'}}>
             <Tabs.Screen name="settings" options={{
                 title:'Setting',
-                tabBarIcon:({color})=><FontAwesome size={38} color={color}/>,
-            }}
+                tabBarIcon:({color})=><FontAwesome name="cog" size={38} color={color}/>}
+            }
             />
             <Tabs.Screen name="contact" options={{
                 title:'Contact',
-                tabBarIcon:({color})=><FontAwesome size={32} color={color}/>,
+                tabBarIcon:({color})=><FontAwesome name="address-book" size={32} color={color}/>,
             }}
             />
         </Tabs>

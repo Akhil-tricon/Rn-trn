@@ -5,12 +5,12 @@ export default function TabLayout(){
         <Tabs screenOptions={{tabBarActiveTintColor:'#419c46'}}>
             <Tabs.Screen name="toggle" options={{
                 title:'Toggle',
-                tabBarIcon:({color})=><FontAwesome size={38} color={color}/>,
+                tabBarIcon:({color})=><FontAwesome name="toggle-on" size={38} color={color}/>         
             }}
             />
             <Tabs.Screen name="icons" options={{
                 title:'Icon',
-                tabBarIcon:({color})=><FontAwesome size={38} color={color}/>,
+                tabBarIcon:({color})=><FontAwesome name="star" size={38} color={color}/>       
             }}
             />
         </Tabs>

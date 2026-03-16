@@ -1,55 +1,70 @@
-import { View, Text, TextInput, StyleSheet,Button} from 'react-native';
-import React, { useState } from 'react';
-import { router } from 'expo-router'
+import { View, Text, TextInput, StyleSheet, Button, Pressable } from "react-native";
+import React, { useState } from "react";
+import { router, Link } from "expo-router";
 
 export default function Home() {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
 
-  const styles = StyleSheet.create({
-    container: {
-        flex: 1, 
-        justifyContent: 'center',
-        backgroundColor:'black'
-    },
-    input: {
-        height: 40,
-        padding: 5,
-        marginHorizontal: 8,
-        borderWidth: 1,
-        margin:'auto',
-        backgroundColor:'white'
-    },
-    text: {
-      padding: 10,
-      fontSize: 42,
-      color:'white'
-    },
-    button:{
-      display:'flex',
-      flexDirection:'row',
-      gap:10,
-      height:80,
-      width:150,
-      borderRadius:50,
-      padding:20,
-      margin:'auto'
-    }
-  })
   return (
     <View style={styles.container}>
-      <TextInput placeholder='Type here...'
-        onChangeText={newText => setText(newText)}
-        defaultValue={text}
-        style={styles.input} />
-      <Text style={styles.text}> {text.split(' ').map(word => word && '😅').join(' ')} </Text>
-      <View style={styles.button}>
-        <Button title="Loader" onPress={()=>router.push('/loader')}/>
-        <Button title="Contact" onPress={()=>router.push('/contact')}/>
-        <Button title="Setting" onPress={()=>router.push('/settings')}/>
-        <Button title="Icon" onPress={()=>router.push('/icons')}/>
-          <Button title="Toggle" onPress={()=>router.push('/toggle')}/>
+
+      <View style={{ margin: 12 }}>
+        <Link href="/scanner" asChild>
+          <Pressable>
+            <Text style={styles.linkText}>Open Scanner</Text>
+          </Pressable>
+        </Link>
       </View>
+
+      <TextInput
+        placeholder="Type here..."
+        onChangeText={(newText) => setText(newText)}
+        value={text}
+        style={styles.input}
+      />
+
+      <Text style={styles.text}>
+        {text.split(" ").map(word => word && "😅").join(" ")}
+      </Text>
+
+      <View style={styles.buttonContainer}>
+        <Button title="Loader" onPress={() => router.push("/loader")} />
+        <Button title="Contact" onPress={() => router.push("/contact")} />
+        <Button title="Setting" onPress={() => router.push("/settings")} />
+        <Button title="Icon" onPress={() => router.push("/icons")} />
+        <Button title="Toggle" onPress={() => router.push("/toggle")} />
+      </View>
+
     </View>
-      
-  )
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    backgroundColor: "black",
+    padding: 10,
+  },
+  input: {
+    height: 40,
+    padding: 5,
+    borderWidth: 1,
+    marginTop: 10,
+    backgroundColor: "white",
+  },
+  text: {
+    padding: 10,
+    fontSize: 42,
+    color: "white",
+  },
+  linkText: {
+    color: "white",
+    fontSize: 18,
+    textDecorationLine: "underline",
+  },
+  buttonContainer: {
+    marginTop: 20,
+    gap: 10,
+  },
+});
