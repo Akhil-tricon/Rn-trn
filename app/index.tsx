@@ -1,4 +1,4 @@
-import { View, Text, TextInput, StyleSheet, Button, Pressable } from "react-native";
+import { View, Text, TextInput, StyleSheet, Button, Pressable,ScrollView } from "react-native";
 import React, { useState } from "react";
 import { router, Link } from "expo-router";
 
@@ -6,8 +6,8 @@ export default function Home() {
   const [text, setText] = useState("");
 
   return (
-    <View style={styles.container}>
-
+    <ScrollView>
+      <View style={styles.container}>
       <View style={{ margin: 12 }}>
         <Link href="/scanner" asChild>
           <Pressable>
@@ -31,11 +31,14 @@ export default function Home() {
         <Button title="Loader" onPress={() => router.push("/loader")} />
         <Button title="Contact" onPress={() => router.push("/contact")} />
         <Button title="Setting" onPress={() => router.push("/settings")} />
+        <Button title="Inventory Scanner" onPress={() => router.push("/inventory-scanner")}/>
         <Button title="Icon" onPress={() => router.push("/icons")} />
         <Button title="Toggle" onPress={() => router.push("/toggle")} />
       </View>
 
     </View>
+    </ScrollView>
+    
   );
 }
 
@@ -64,7 +67,7 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
   buttonContainer: {
-    marginTop: 20,
-    gap: 10,
+    marginTop: 40,
+    gap: 30,
   },
 });
