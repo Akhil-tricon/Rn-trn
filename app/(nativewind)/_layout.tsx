@@ -1,16 +1,16 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import {Tabs} from 'expo-router';
-export default function TabLayout(){
-    return(
-        <Tabs screenOptions={{tabBarActiveTintColor:'#419c46'}}>
+import { Tabs } from 'expo-router';
+export default function TabLayout() {
+    return (
+        <Tabs screenOptions={{ tabBarActiveTintColor: '#419c46' }}>
             <Tabs.Screen name="toggle" options={{
-                title:'Toggle',
-                tabBarIcon:({color})=><FontAwesome name="toggle-on" size={38} color={color}/>         
+                title: 'Toggle',
+                tabBarIcon: ({ color }) => <FontAwesome name="toggle-on" size={32} color={color} />
             }}
             />
             <Tabs.Screen name="icons" options={{
-                title:'Icon',
-                tabBarIcon:({color})=><FontAwesome name="star" size={38} color={color}/>       
+                title: 'Icon',
+                tabBarIcon: ({ color }) => <FontAwesome name="star" size={32} color={color} />
             }}
             />
         </Tabs>

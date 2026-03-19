@@ -13,7 +13,7 @@ export default function InventoryScanner() {
     setScanned(true);
 
     router.push({
-      pathname: "/product/[barcode]",
+      pathname: "/product/[barcode]", //dynamic route parameter
       params: { barcode: data }
     });
 
@@ -39,6 +39,9 @@ export default function InventoryScanner() {
         }}
         onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}
       />
+      {scanned && (
+        <Button title="Scan Again" onPress={() => setScanned(false)} />
+      )}
     </View>
   );
 }

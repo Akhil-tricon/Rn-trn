@@ -1,4 +1,4 @@
-import { View, Text, TextInput, StyleSheet, Button, Pressable,ScrollView } from "react-native";
+import { View, Text, TextInput, StyleSheet, Button, Pressable, ScrollView } from "react-native";
 import React, { useState } from "react";
 import { router, Link } from "expo-router";
 
@@ -8,37 +8,37 @@ export default function Home() {
   return (
     <ScrollView>
       <View style={styles.container}>
-      <View style={{ margin: 12 }}>
-        <Link href="/scanner" asChild>
-          <Pressable>
-            <Text style={styles.linkText}>Open Scanner</Text>
-          </Pressable>
-        </Link>
+        <View style={{ margin: 12 }}>
+          <Link href="/scanner" asChild>
+            <Pressable>
+              <Text style={styles.linkText}>Open Scanner</Text>
+            </Pressable>
+          </Link>
+        </View>
+
+        <TextInput
+          placeholder="Type here..."
+          onChangeText={(newText) => setText(newText)}
+          value={text}
+          style={styles.input}
+        />
+
+        <Text style={styles.text}>
+          {text.split(" ").map(word => word && "😅").join(" ")}
+        </Text>
+
+        <View style={styles.buttonContainer}>
+          <Button title="Loader" onPress={() => router.push("/loader")} />
+          <Button title="Contact" onPress={() => router.push("/contact")} />
+          <Button title="Setting" onPress={() => router.push("/settings")} />
+          <Button title="Inventory Scanner" onPress={() => router.push("/inventory-scanner")} />
+          <Button title="Icon" onPress={() => router.push("/icons")} />
+          <Button title="Toggle" onPress={() => router.push("/toggle")} />
+        </View>
+
       </View>
-
-      <TextInput
-        placeholder="Type here..."
-        onChangeText={(newText) => setText(newText)}
-        value={text}
-        style={styles.input}
-      />
-
-      <Text style={styles.text}>
-        {text.split(" ").map(word => word && "😅").join(" ")}
-      </Text>
-
-      <View style={styles.buttonContainer}>
-        <Button title="Loader" onPress={() => router.push("/loader")} />
-        <Button title="Contact" onPress={() => router.push("/contact")} />
-        <Button title="Setting" onPress={() => router.push("/settings")} />
-        <Button title="Inventory Scanner" onPress={() => router.push("/inventory-scanner")}/>
-        <Button title="Icon" onPress={() => router.push("/icons")} />
-        <Button title="Toggle" onPress={() => router.push("/toggle")} />
-      </View>
-
-    </View>
     </ScrollView>
-    
+
   );
 }
 

@@ -1,14 +1,14 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
 import { Ionicons } from "@expo/vector-icons"
 import { router } from 'expo-router'
-import useCounterState from '../store/useCounterStore'
+import useCounterStore from '../store/useCounterStore'
 import useUserStore from '../store/useUserStore'
 
 export default function Icons() {
-    const count = useCounterState((state) => state.count)
-    const increment = useCounterState((state) => state.increment)
-    const decrement = useCounterState((state) => state.decrement)
-    const reset = useCounterState((state) => state.reset)
+    const count = useCounterStore((state) => state.count)
+    const increment = useCounterStore((state) => state.increment)
+    const decrement = useCounterStore((state) => state.decrement)
+    const reset = useCounterStore((state) => state.reset)
 
     const name = useUserStore((state) => state.name)
     const isLoggedIn = useUserStore((state) => state.isLoggedIn)
@@ -42,8 +42,6 @@ export default function Icons() {
             <Pressable style={styles.button} onPress={() => router.push('/')}>
                 <Ionicons title="Back to home" name="home" size={30} color="black" />
             </Pressable>
-            
-
 
             <View style={{ flexDirection: 'row', gap: 10 }} className='h-50 bg-gray-700 p-4 mx-auto mb-2'>
                 <Text style={styles.text}>Count: {count}</Text>
@@ -70,6 +68,5 @@ export default function Icons() {
                 </Pressable>
             </View>
         </View>
-
     )
 }

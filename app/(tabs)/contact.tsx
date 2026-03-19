@@ -4,11 +4,11 @@ import { Ionicons } from "@expo/vector-icons";
 
 const data=[
         {
-            name:'Nandhini',
+            title:'Nandhini',
             data:['nan@gmail.com','0123456789']
         },
         {
-            name:'Kavi',
+            title:'Kavi',
             data:['kavi@gmail.com','9876543210']
         }
     ];
@@ -58,8 +58,8 @@ export default function Contact(){
                         <Text style={styles.text}>{item}</Text>
                     </View>
                 )}
-                renderSectionHeader={({section:{name}})=>(
-                    <Text style={styles.header}>{name}</Text>
+                renderSectionHeader={({section:{title}})=>(
+                    <Text style={styles.header}>{title}</Text>
                 )}
                 />
             </View>

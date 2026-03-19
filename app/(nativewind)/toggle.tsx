@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { View, Text, Pressable } from "react-native";
 import { colorScheme } from "nativewind";
-import { StatusBar } from "expo-status-bar";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 
@@ -17,8 +16,6 @@ export default function App() {
 
   return (
     <View className="flex-1">
-
-      {/* Home Button */}
       <Pressable
         className="bg-green-500 w-10 h-10 rounded-full items-center justify-center m-2"
         onPress={() => router.push("/")}
@@ -28,11 +25,9 @@ export default function App() {
 
       {/* Main Content */}
       <View
-        className={`flex-1 justify-center items-center ${
-          currentTheme === "dark" ? "bg-gray-900" : "bg-white"
-        }`}
-      >
-        <StatusBar style={currentTheme === "dark" ? "light" : "dark"} />
+        className={`flex-1 justify-center items-center ${currentTheme === "dark" ? "bg-gray-900" : "bg-white"
+          }`}>
+        
 
         <Pressable onPress={toggleTheme} className="mt-4">
           <Text
@@ -43,11 +38,9 @@ export default function App() {
               backgroundColor: "skyblue",
               padding: 6,
               borderRadius: 6,
-            }}
-          >
-            {`Press Me to switch to ${
-              currentTheme === "dark" ? "Light" : "Dark"
-            } mode`}
+            }}>
+            {`Press Me to switch to ${currentTheme === "dark" ? "Light" : "Dark"
+              } mode`}
           </Text>
         </Pressable>
 
@@ -56,7 +49,6 @@ export default function App() {
         </Text>
 
       </View>
-
     </View>
   );
 }
